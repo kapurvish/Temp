@@ -25,7 +25,6 @@ train_images = train_images / 255
 test_images = test_images / 255
 
 model =tf.keras.models.Sequential()
-
 model.add(tf.keras.layers.Conv2D(64,(3,3),activation='relu',input_shape=(32,32,3)))
 model.add(tf.keras.layers.Conv2D(32,(3,3),activation='relu'))
 model.add(tf.keras.layers.Flatten())
@@ -33,19 +32,19 @@ model.add(tf.keras.layers.Dense(64,activation ='relu'))
 model.add(tf.keras.layers.Dense(10,activation ='softmax'))
 
 model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
-model.fit(train_images, train_labels,epochs=5)
+model.fit(train_images, train_labels,epochs=5,batch_size=128, shuffle=True)
 
 
-#Epoch 1/5
-#50000/50000 [==============================] - 85s 2ms/sample - loss: 1.4620 - accuracy: 0.4756
+#50000/50000 [==============================] - 67s 1ms/sample - loss: 1.5287 - accuracy: 0.4519
 #Epoch 2/5
-#50000/50000 [==============================] - 81s 2ms/sample - loss: 1.0948 - accuracy: 0.6127
+#50000/50000 [==============================] - 65s 1ms/sample - loss: 1.1510 - accuracy: 0.5970
 #Epoch 3/5
-#50000/50000 [==============================] - 82s 2ms/sample - loss: 0.9132 - accuracy: 0.6785
+#50000/50000 [==============================] - 64s 1ms/sample - loss: 0.9651 - accuracy: 0.6632
 #Epoch 4/5
-#50000/50000 [==============================] - 82s 2ms/sample - loss: 0.7702 - accuracy: 0.7316
+#50000/50000 [==============================] - 65s 1ms/sample - loss: 0.8449 - accuracy: 0.7071
 #Epoch 5/5
-#50000/50000 [==============================] - 81s 2ms/sample - loss: 0.6434 - accuracy: 0.7762
+#50000/50000 [==============================] - 65s 1ms/sample - loss: 0.7505 - accuracy: 0.7409
+
 #Model: "sequential_9"
 #_________________________________________________________________
 #Layer (type)                 Output Shape              Param #   
@@ -64,7 +63,7 @@ model.fit(train_images, train_labels,epochs=5)
 #Trainable params: 1,626,602
 #Non-trainable params: 0
 
-#Answer for Ques 1): should be 75-80 , C option.
+#Answer for Ques 1): accuracy : 0.7409, it should be 70-75 , B option.
 
 print(model.summary())
 
