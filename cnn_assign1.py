@@ -78,52 +78,55 @@ model.add(tf.keras.layers.Dense(64,activation ='relu'))
 model.add(tf.keras.layers.Dense(10,activation ='softmax'))
 
 model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
-model.fit(train_images, train_labels,epochs=10)
+model.fit(train_images, train_labels,epochs=10,batch_size=128, shuffle=True)
 
-#Epoch 1/10
-#50000/50000 [==============================] - 46s 919us/sample - loss: 1.5025 - accuracy: 0.4580: 7s - loss: 1.5413 - accuracy: 0.4418
-#Epoch 2/10
-#50000/50000 [==============================] - 45s 906us/sample - loss: 1.1601 - accuracy: 0.5933
-#Epoch 3/10
-#50000/50000 [==============================] - 44s 881us/sample - loss: 1.0337 - accuracy: 0.6380
-#Epoch 4/10
-#50000/50000 [==============================] - 44s 880us/sample - loss: 0.9598 - accuracy: 0.6669
-#Epoch 5/10
-#50000/50000 [==============================] - 44s 879us/sample - loss: 0.9009 - accuracy: 0.6861
-#Epoch 6/10
-#50000/50000 [==============================] - 44s 882us/sample - loss: 0.8562 - accuracy: 0.7020
-#Epoch 7/10
-#50000/50000 [==============================] - 45s 904us/sample - loss: 0.8172 - accuracy: 0.7160
-#Epoch 8/10
-#50000/50000 [==============================] - 44s 879us/sample - loss: 0.7854 - accuracy: 0.7269
-#Epoch 9/10
-#50000/50000 [==============================] - 44s 888us/sample - loss: 0.7546 - accuracy: 0.7368
-#Epoch 10/10
-#50000/50000 [==============================] - 44s 878us/sample - loss: 0.7223 - accuracy: 0.7480
-#Model: "sequential"
+#Model: "sequential_2"
 #_________________________________________________________________
 #Layer (type)                 Output Shape              Param #   
 #=================================================================
-#conv2d (Conv2D)              (None, 30, 30, 64)        1792      
+#conv2d_5 (Conv2D)            (None, 30, 30, 64)        1792      
 #_________________________________________________________________
-#max_pooling2d (MaxPooling2D) (None, 15, 15, 64)        0         
+#max_pooling2d_2 (MaxPooling2 (None, 15, 15, 64)        0         
 #_________________________________________________________________
-#conv2d_1 (Conv2D)            (None, 13, 13, 32)        18464     
+#conv2d_6 (Conv2D)            (None, 13, 13, 32)        18464     
 #_________________________________________________________________
-#max_pooling2d_1 (MaxPooling2 (None, 6, 6, 32)          0         
+#max_pooling2d_3 (MaxPooling2 (None, 6, 6, 32)          0         
 #_________________________________________________________________
-#flatten (Flatten)            (None, 1152)              0         
+#flatten_2 (Flatten)          (None, 1152)              0         
 #_________________________________________________________________
-#dense (Dense)                (None, 64)                73792     
+#dense_4 (Dense)              (None, 64)                73792     
 #_________________________________________________________________
-#dense_1 (Dense)              (None, 10)                650       
+#dense_5 (Dense)              (None, 10)                650       
 #=================================================================
 #Total params: 94,698
 #Trainable params: 94,698
 #Non-trainable params: 0
 #_________________________________________________________________
 #None
+#W0929 23:06:52.137400 11300 ag_logging.py:146] Entity <function Function._initialize_uninitialized_variables.<locals>.initialize_variables at 0x000002A2084B4BF8> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: 
+#Train on 50000 samples
+#Epoch 1/10
+#WARNING: Entity <function Function._initialize_uninitialized_variables.<locals>.initialize_variables at 0x000002A2084B4BF8> could not be transformed and will be executed as-is. Please report this to the AutoGraph team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output. Cause: 
+#50000/50000 [==============================] - 42s 844us/sample - loss: 1.6467 - accuracy: 0.4093
+#Epoch 2/10
+#50000/50000 [==============================] - 39s 789us/sample - loss: 1.3197 - accuracy: 0.5303
+#Epoch 3/10
+#50000/50000 [==============================] - 39s 785us/sample - loss: 1.1893 - accuracy: 0.5813
+#Epoch 4/10
+#50000/50000 [==============================] - 39s 782us/sample - loss: 1.1068 - accuracy: 0.6102
+#Epoch 5/10
+#50000/50000 [==============================] - 39s 778us/sample - loss: 1.0488 - accuracy: 0.6332
+#Epoch 6/10
+#50000/50000 [==============================] - 41s 829us/sample - loss: 1.0013 - accuracy: 0.6516
+#Epoch 7/10
+#50000/50000 [==============================] - 42s 832us/sample - loss: 0.9695 - accuracy: 0.6622
+#Epoch 8/10
+#50000/50000 [==============================] - 40s 806us/sample - loss: 0.9372 - accuracy: 0.6752
+#Epoch 9/10
+#50000/50000 [==============================] - 40s 795us/sample - loss: 0.9100 - accuracy: 0.6842
+#Epoch 10/10
+#50000/50000 [==============================] - 49s 976us/sample - loss: 0.8864 - accuracy: 0.6923
 
-#Answer for Ques 2 should be  70-75 , C option.
+#Answer for Ques 2 as accuracy: 0.6923 should be  65-70 , B option.
 #Answer for Ques 3 should be  Reduced by 94,698 , b option.
 
